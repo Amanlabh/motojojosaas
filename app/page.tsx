@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import { Button } from "@/components/ui/button"
-import { ChevronRight, Music, Play, Users, Calendar, MapPin, Mic, Star, X } from "lucide-react"
+import { ChevronRight, Music, Play, Users, Calendar, MapPin, Mic, Star, X, Heart, DollarSign } from "lucide-react"
 
 export default function LandingPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +14,11 @@ export default function LandingPage() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <img 
+          <Image 
             src="https://static.wixstatic.com/media/55e321_7dcb429f1dce497dbe475f9b37668670~mv2.jpg/v1/fill/w_341,h_341,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/FINAL%20OPEN%20FILE%20FOR%20LOGO%20-%20SEP%201%202024_edited.jpg" 
             alt="Logo" 
+            width={24}
+            height={24}
             className="h-6 w-6" 
           />
           <span style={{ color: "yellow" }}>MOTOJOJO</span>
@@ -80,56 +82,43 @@ export default function LandingPage() {
       )}
     </header>
       <main className="flex-1">
-  <section className="relative overflow-hidden py-24 md:py-32 bg-cover bg-center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/blurry-abstract-night-music-festival-background-with-people-bright-night-bokeh-night-music-community-event-with-people_87555-16380.jpg')" }}>
-    {/* Overlay for better text readability */}
-    <div className="absolute inset-0 bg-black/50"></div>
-    
-    <div className="container px-4 md:px-6 relative z-10">
-      <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
-        <div className="flex flex-col justify-center space-y-6">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              Where Artists <span className="text-[#E91E63]">Shine</span> on Stage
-            </h1>
-            <p className="max-w-[600px] text-zinc-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Connect with live performers, discover upcoming shows, and experience the magic of live
-              performances.
-            </p>
-            <p className="max-w-[600px] text-zinc-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Keep 100% ownership of your music and stay in control of your career. Unlimited releases starting at $22.99/year.
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 min-[400px]:flex-row">
-            <Button size="lg" className="rounded-full bg-[#E91E63] hover:bg-[#E91E63]/90 text-white">
-              SIGN UP NOW
-            </Button>
-          </div>
-          <p className="text-zinc-200 md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-            Unlimited Distribution Starting at <span className="font-bold">$22.99/year</span>
-          </p>
-        </div>
-        <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square shadow-lg">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/H0IRIr4ipfI?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0"
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title="YouTube Video"
-            className="rounded-xl"
-          ></iframe>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2E1A47]/60 to-transparent"></div>
-        </div>
-      </div>
+      <section className="relative h-screen flex items-center justify-center bg-[#2E1A47] overflow-hidden">
+  <div className="absolute inset-0">
+    <Image
+      src="https://gov.texas.gov/uploads/images/music/_large_cropped/Music-CV-homepage.jpg" // Replace with your image path
+      alt="Hero Background"
+      layout="fill"
+      objectFit="cover"
+      className="opacity-50"
+    />
+  </div>
+  <div className="relative z-10 text-center px-4">
+    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-yellow-400 to-[#E91E63] bg-clip-text text-transparent mb-4">
+      Where Artists Shine on Stage
+    </h1>
+    <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-8">
+      Discover Artists, connect with live performers, discover upcoming shows, and experience the magic of live performances.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button
+        className="bg-gradient-to-r from-[#E91E63] to-[#FF5722] hover:from-[#FF5722] hover:to-[#E91E63] text-white font-bold py-3 px-6 rounded-full transition-all duration-300"
+      >
+        Discover Artists
+      </Button>
+      <Button
+        className="bg-transparent border border-yellow-400 text-yellow-400 hover:bg-yellow-400/10 font-bold py-3 px-6 rounded-full transition-all duration-300"
+      >
+        For Artists
+      </Button>
     </div>
-  </section>
+  </div>
+</section>
 
         <section className="bg-[#2E1A47] py-12 md:py-16 lg:py-20">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
                   Trending Artists This Week
                 </h2>
                 <p className="max-w-[700px] text-yellow-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -172,67 +161,72 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="py-12 md:py-16 lg:py-20">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Upcoming Shows</h2>
-                <p className="max-w-[700px] text-yellow-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Don't miss these incredible live performances happening soon.
-                </p>
-              </div>
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#2E1A47] to-[#1A102E]">
+  <div className="container px-4 md:px-6">
+    <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <div className="space-y-2">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+          Upcoming Shows
+        </h2>
+        <p className="max-w-[700px] text-yellow-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          Don't miss these incredible live performances happening soon.
+        </p>
+      </div>
+    </div>
+    <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[1, 2, 3].map((i) => (
+        <div
+          key={i}
+          className="group relative overflow-hidden rounded-lg border border-[#ffffff1a] bg-[#2E1A47] transition-all duration-300 hover:bg-gradient-to-br from-[#2E1A47] to-[#4A2C6D] hover:shadow-lg hover:shadow-[#4A2C6D]/50"
+        >
+          <div className="aspect-video w-full overflow-hidden">
+            <Image
+              src="https://static.wixstatic.com/media/9d2de7_4648b35fd1b14cf8a111129e549607d9~mv2.png/v1/fill/w_6000,h_3141,al_c/9d2de7_4648b35fd1b14cf8a111129e549607d9~mv2.png"
+              width={500}
+              height={300}
+              alt={`Upcoming show ${i}`}
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
+          <div className="p-4">
+            <div className="flex items-center gap-2 text-sm text-zinc-200">
+              <Calendar className="h-4 w-4 text-yellow-400" />
+              <span>Fri, Mar 15 • 8:00 PM</span>
             </div>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="group relative overflow-hidden rounded-lg border border-[#ffffff1a] bg-[#2E1A47] transition-colors hover:bg-[#2E1A47]/90"
-                >
-                  <div className="aspect-video w-full overflow-hidden">
-                  <Image
-    src="https://static.wixstatic.com/media/9d2de7_4648b35fd1b14cf8a111129e549607d9~mv2.png/v1/fill/w_6000,h_3141,al_c/9d2de7_4648b35fd1b14cf8a111129e549607d9~mv2.png"
-    width={500}
-    height={300}
-    alt={`Upcoming show ${i}`}
-    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-/>
-                  </div>
-                  <div className="p-4">
-                    <div className="flex items-center gap-2 text-sm text-zinc-200">
-                      <Calendar className="h-4 w-4" />
-                      <span>Fri, Mar 15 • 8:00 PM</span>
-                    </div>
-                    <h3 className="mt-2 font-bold text-lg">Artist Showcase Night</h3>
-                    <div className="mt-2 flex items-center gap-2 text-sm text-zinc-200">
-                      <MapPin className="h-4 w-4" />
-                      <span>The Grand Theater, New York</span>
-                    </div>
-                    <div className="mt-4 flex items-center justify-between">
-                      <span className="font-bold">$25 - $75</span>
-                      <Button size="sm" className="rounded-full bg-[#E91E63] hover:bg-[#E91E63]/90">
-                        Get Tickets
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <h3 className="mt-2 font-bold text-lg text-yellow-400">Artist Showcase Night</h3>
+            <div className="mt-2 flex items-center gap-2 text-sm text-zinc-200">
+              <MapPin className="h-4 w-4 text-yellow-400" />
+              <span>The Grand Theater, New York</span>
             </div>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-4 flex items-center justify-between">
+              <span className="font-bold text-yellow-400">$25 - $75</span>
               <Button
-                variant="outline"
-                className="rounded-full border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700]/10"
+                size="sm"
+                className="rounded-full bg-gradient-to-r from-[#E91E63] to-[#FF5722] hover:bg-gradient-to-r hover:from-[#FF5722] hover:to-[#E91E63] transition-all duration-300"
               >
-                View All Shows <ChevronRight className="ml-1 h-4 w-4" />
+                Get Tickets
               </Button>
             </div>
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
+    <div className="mt-8 flex justify-center">
+      <Button
+        variant="outline"
+        className="rounded-full border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700]/10 hover:border-[#FFD700]/80 transition-all duration-300"
+      >
+        View All Shows <ChevronRight className="ml-1 h-4 w-4" />
+      </Button>
+    </div>
+  </div>
+</section>
         <section className="bg-[#2E1A47] py-12 md:py-16 lg:py-20">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">For Artists</h2>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent"> Artists</h2>
                   <p className="max-w-[600px] text-zinc-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Showcase your talent, connect with fans, and book more gigs with Motojojo.
                   </p>
@@ -299,7 +293,7 @@ export default function LandingPage() {
       {/* Image on the left side */}
       <div className="relative aspect-square overflow-hidden rounded-xl">
         <Image
-          src="https://www.tunecore.com/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F119568%2F1707331578-adela.png%3Ffit%3Dmax%26fm%3Dwebp%26h%3D600%26q%3D75%26w%3D800&w=828&q=75" // Replace with your image URL
+          src="https://imgcdn.stablediffusionweb.com/2024/10/29/e0b2a3a9-e7f5-4e6a-bc0d-807f36bb8a5d.jpg" // Replace with your image URL
           alt="Artist performing on stage"
           width={600}
           height={600}
@@ -310,48 +304,63 @@ export default function LandingPage() {
       {/* Content on the right side */}
       <div className="flex flex-col justify-center space-y-4">
         <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why Motojojo</h2>
-          <p className="max-w-[600px] text-zinc-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Showcase your talent, connect with fans, and book more gigs with Motojojo.
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+            Why Motojojo?
+          </h2>
+          <p className="max-w-[600px] text-zinc-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Motojojo is the ultimate platform for artists and event organizers to connect, grow, and thrive in the music industry.
           </p>
         </div>
         <ul className="grid gap-4">
           <li className="flex items-start gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
-              <Users className="h-5 w-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-medium">Grow Your Audience</h3>
-              <p className="text-sm text-zinc-200">
-                Connect with fans and build a dedicated following that supports your art.
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
-              <Calendar className="h-5 w-5" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-medium">Book More Shows</h3>
-              <p className="text-sm text-zinc-200">
-                Get discovered by venues and event organizers looking for talent like yours.
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
-              <Mic className="h-5 w-5" />
+              <Mic className="h-5 w-5" /> {/* Icon for showcasing talent */}
             </div>
             <div className="space-y-1">
               <h3 className="font-medium">Showcase Your Talent</h3>
-              <p className="text-sm text-zinc-200">
-                Upload videos of your performances and highlight your unique style.
+              <p className="text-sm text-zinc-300">
+                Highlight your unique style and performances to a global audience.
+              </p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
+              <Users className="h-5 w-5" /> {/* Icon for growing audience */}
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-medium">Grow Your Audience</h3>
+              <p className="text-sm text-zinc-300">
+                Connect with fans and build a loyal following that supports your career.
+              </p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
+              <Calendar className="h-5 w-5" /> {/* Icon for booking shows */}
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-medium">Book More Shows</h3>
+              <p className="text-sm text-zinc-300">
+                Get discovered by venues and event organizers looking for top talent.
+              </p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
+              <DollarSign className="h-5 w-5" /> {/* Icon for monetization */}
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-medium">Monetize Your Art</h3>
+              <p className="text-sm text-zinc-300">
+                Earn revenue through ticket sales, merchandise, and fan support.
               </p>
             </div>
           </li>
         </ul>
         <div className="flex flex-col gap-2 min-[400px]:flex-row">
-          <Button className="rounded-full bg-[#E91E63] hover:bg-[#E91E63]/90">Join as an Artist</Button>
+          <Button className="rounded-full bg-[#E91E63] hover:bg-[#E91E63]/90">
+            Join as an Artist
+          </Button>
           <Button variant="outline" className="rounded-full border-[#E91E63] text-[#E91E63] hover:bg-[#E91E63]/10">
             Learn More
           </Button>
@@ -360,12 +369,84 @@ export default function LandingPage() {
     </div>
   </div>
 </section>
+
+<section className="bg-[#2E1A47] py-12 md:py-16 lg:py-20">
+  <div className="container px-4 md:px-6">
+    <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+      <div className="flex flex-col justify-center space-y-4">
+        <div className="space-y-2">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+            Elevate Your Events
+          </h2>
+          <p className="max-w-[600px] text-zinc-200 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Plan unforgettable events with top-tier performers, seamless booking, and unforgettable experiences.
+          </p>
+        </div>
+        <ul className="grid gap-4">
+          <li className="flex items-start gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
+              <Star className="h-5 w-5" /> {/* Replace with an appropriate icon */}
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-medium">Top-Tier Performers</h3>
+              <p className="text-sm text-zinc-200">
+                Access a curated list of talented artists and performers for your events.
+              </p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
+              <Calendar className="h-5 w-5" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-medium">Seamless Booking</h3>
+              <p className="text-sm text-zinc-200">
+                Easily book and manage performers with our user-friendly platform.
+              </p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#E91E63]/10 text-[#E91E63]">
+              <Heart className="h-5 w-5" /> {/* Replace with an appropriate icon */}
+            </div>
+            <div className="space-y-1">
+              <h3 className="font-medium">Unforgettable Experiences</h3>
+              <p className="text-sm text-zinc-200">
+                Create memorable events that leave a lasting impression on your audience.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div className="flex flex-col gap-2 min-[400px]:flex-row">
+          <Button className="rounded-full bg-[#E91E63] hover:bg-[#E91E63]/90">
+            Plan Your Event
+          </Button>
+          <Button variant="outline" className="rounded-full border-[#E91E63] text-[#E91E63] hover:bg-[#E91E63]/10">
+            Learn More
+          </Button>
+        </div>
+      </div>
+      <div className="relative aspect-square overflow-hidden rounded-xl shadow-lg">
+        <Image
+          src="https://team-building.com/wp-content/uploads/2022/10/Neon-party-1.jpg" // Replace with your image URL
+          alt="Event Planning"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-xl"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2E1A47]/60 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
         
-        <section className="py-12 md:py-16 lg:py-20 bg-[#2E1A47]">
+<section className="py-12 md:py-16 lg:py-20 bg-[#2E1A47]">
   <div className="container px-4 md:px-6">
     <div className="flex flex-col items-center justify-center space-y-4 text-center">
       <div className="space-y-2">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
+          Frequently Asked Questions
+        </h2>
         <p className="max-w-[700px] text-yellow-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           Find answers to common questions about Motojojo and how it works.
         </p>
@@ -398,9 +479,14 @@ export default function LandingPage() {
           answer: "Motojojo features a wide range of genres, from rock and pop to jazz and classical."
         }
       ].map((faq, index) => (
-        <div key={index} className="p-6 rounded-lg border border-[#ffffff1a] bg-[#2E1A47] hover:bg-[#2E1A47]/90 transition-colors">
-          <h3 className="font-bold text-lg">{faq.question}</h3>
-          <p className="mt-2 text-sm text-zinc-200">{faq.answer}</p>
+        <div
+          key={index}
+          className="group p-6 rounded-lg border border-[#ffffff1a] bg-[#2E1A47] hover:bg-gradient-to-br from-[#2E1A47] to-[#4A2C6D] transition-all duration-300 relative overflow-hidden transform hover:scale-105"
+        >
+          <h3 className="font-bold text-lg text-yellow-400">{faq.question}</h3>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2E1A47] to-[#4A2C6D] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+            <p className="text-sm text-zinc-200 text-center">{faq.answer}</p>
+          </div>
         </div>
       ))}
     </div>
@@ -410,13 +496,15 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-gradient-to-r from-yellow-400 to-purple-400 bg-clip-text text-transparent">
                   Join the Motojojo Community
                 </h2>
+                <br />
                 <p className="max-w-[700px] text-yellow-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
     We bring people together to create intimate spaces where real connection matters in cities around the world. Join our global community for intimate live experiences that spark real connection. Connecting the dots, one city at a time.
 </p>
               </div>
+              <br />
               <div className="w-full max-w-sm space-y-2">
                 <form className="flex space-x-2">
                   <input
